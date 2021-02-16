@@ -35,14 +35,30 @@
                     </li>
                   </ul>
              </div>
+             <!-- <form class="form-inline my-2 my-lg-0" action="liste.php" method="post">
+                <input class="form-control mr-sm-2" type="recherche" placeholder="Search" aria-label="Recherche">
+                <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Recherche</button>-->
               </form>
             </div>
           </nav>
     </header>
 	<!-- main -->
+<?php
+
+    require_once 'connexion.php';
+
+    $id = $_GET["id"];
+
+    $result = $db->query("SELECT * FROM liste WHERE id=$id");
+    $result-> execute(array($id, $nom, $prenom, $naissance, $adresse, $telephone, $email));
+
+    $ligne = $result->fetch();
+
+?>
+
 
 	<div class="main-w3layouts wrapper">
-		<h1 class="font-weight-bold">Ceci est le détails de l'apprenant</h1>
+		<h1 class="font-weight-bold">Veuillez modifier les champs suivants</h1>
 		<div class="main-agileinfo">
 			<div class="agileits-top ">
 				<div class="row">
@@ -56,32 +72,20 @@
 
 					</div>
 				</div>
-    
-
-        <?php
-        $bd = new PDO("mysql:host=localhost;dbname=apprenants","root", "");
-        $bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        $id = $_GET['id'];
-        $result = $bd->prepare("SELECT * FROM liste WHERE id=?");
-        $result->execute(array($id));
-        $ligne = $result->fetch();
-        ?>        
-
-				<form action="" method="POST">
-					<input class="text mt-4" type="hidden" name="id" value="<?= $ligne['id']?>">
-                    <input class="text mt-4" type="text" name="NOM" value="<?= $ligne['NOM'];?>" pattern="[a-zA-Z]{1,}" required="">
-					<input class="text mt-4" type="text" name="PRENOM" value="<?= $ligne['PRENOM'];?>" pattern="[a-zA-Z]{1,}" required="">
-					<input class="text mt-4" type="date" name="NAISSANCE" value="<?= $ligne['NAISSANCE'];?>" required="">
-					<input class="text mt-4" type="text" name="ADRESSE" value="<?= $ligne['ADRESSE'];?>" required="">
-					<input class="text mt-4" type="text" name="TELEPHONE" value="<?= $ligne['TELEPHONE'];?>" pattern="[0-9]{1,}" required="">
-					<input class="text email" type="email" name="EMAIL" value="<?= $ligne['EMAIL'];?>" required="">
-          <button type="submit" class="btn btn-primary"><span>UPDATE</span></button>
+				<form action="modifier.php" method="post">
+					<input class="text mt-4" type="hidden" name="id" value="<?= $id  ?>">
+                    <input class="text mt-4" type="text" name="NOM" value="<?= $ligne['NOM']  ?>" pattern="[a-zA-Z]{1,}" required="">
+					<input class="text mt-4" type="text" name="PRENOM" value="<?= $ligne['PRENOM']?>" pattern="[a-zA-Z]{1,}" required="">
+					<input class="text mt-4" type="date" name="NAISSANCE" value="<?=$ligne['NAISSANCE'] ?>" required="">
+					<input class="text mt-4" type="text" name="ADRESSE" value="<?= $ligne['ADRESSE'] ?>" required="">
+					<input class="text mt-4" type="text" name="TELEPHONE" value="<?=$ligne['TELEPHONE'] ?>" pattern="[0-9]{1,}" required="">
+					<input class="text email" type="email" name="EMAIL" value="<?= $ligne['EMAIL']?>" required="">
+					<input type="submit" value="Enrégistrez les modifications">
 				</form>
 				<p><a href="../index.php" class="list-unstyled"> RETOUR</a></p>
 			</div>
 		</div>
-    ?>
+
 		<!-- copyright -->
 		<div class="colorlibcopy-agile">
 			<p>© Copyright 2021.| Design by Groupe 5</p>
@@ -103,3 +107,29 @@
 </body>
 </html>
 
+
+
+
+
+
+<?php/*
+
+    if(isset($_GET["id"]))
+    {
+        $id = $_GET["id"];
+        if(!empty($id) && is_numeric ($id))
+        {
+  
+            $bd = new PDO("mysql:host=localhost;dbname=apprenants","root", "");
+            $bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            $query = "SELECT * FROM liste WHERE id=$id";
+            $bd->exec($query);
+            $result = $bd->query($query);
+            $ligne = $result->fetchAll();
+            $id = $ligne[0] ["id"];
+            
+        }
+    }
+
+?>

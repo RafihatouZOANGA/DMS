@@ -54,9 +54,6 @@
     ?>
 
 <?php
-/*function deleteapprenant($NOM, $PRENOM){
-    $sql = "DELETE FROM liste WHERE NOM = $NOM AND PRENOM = $PRENOM";
-    return executeSQL($sql);*/
 
         if (!$result){
             echo"la recuperation a echoue";
@@ -83,6 +80,7 @@
                             <th>EMAIL</th>
                             <th>ACTION 1</th>
                             <th>ACTION 2</th>
+                            <th>ACTION 3</th>
                         </tr>
                         <tr>
                             <?php
@@ -92,7 +90,8 @@
                                             <td>$ligne[1]</td>
                                             <td>$ligne[2]</td>
                                             <td>$ligne[3]</td>
-                                            <td><a class='btn btn-success' href='details.php'>Détails</a></td>
+                                            <td><a class='btn btn-success' href='details.php?id=$ligne[0]'>Détails</a></td>
+                                            <td><a class='btn btn-primary' href='mo.php?id=$ligne[0]'>Modifier</a></td>
                                             <td><a class='btn btn-danger' onclick='return confirm(\"Voulez-vous vraiment supprimer cet apprenant?\")'; href='supprimer.php?id=$ligne[0]'>Supprimer</a></td>
                                         </tr>";
                                 }
@@ -114,16 +113,3 @@
 </body>
 
 </html>
-
-<?php
-    /*
-    les autres boutons
-
-    
-                            
-                            <th>ACTION 3</th>
-
-    
-    <td><a class='btn btn-primary' href='liste_apprenants.php'>Modifier</a></td>*/
-
-?>

@@ -42,7 +42,7 @@
 	<!-- main -->
 
 	<div class="main-w3layouts wrapper">
-		<h1 class="font-weight-bold">Ceci est le détails de l'apprenant</h1>
+		<h1 class="font-weight-bold">Veuillez modifier les champs suivants</h1>
 		<div class="main-agileinfo">
 			<div class="agileits-top ">
 				<div class="row">
@@ -68,7 +68,7 @@
         $ligne = $result->fetch();
         ?>        
 
-				<form action="" method="POST">
+				<form action="update.php" method="POST">
 					<input class="text mt-4" type="hidden" name="id" value="<?= $ligne['id']?>">
                     <input class="text mt-4" type="text" name="NOM" value="<?= $ligne['NOM'];?>" pattern="[a-zA-Z]{1,}" required="">
 					<input class="text mt-4" type="text" name="PRENOM" value="<?= $ligne['PRENOM'];?>" pattern="[a-zA-Z]{1,}" required="">
@@ -102,4 +102,3 @@
     <script src="js/app1.js" ></script>
 </body>
 </html>
-
