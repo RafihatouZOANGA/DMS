@@ -70,7 +70,7 @@
 
 				<form action="update.php" method="POST">
 					<input class="text mt-4" type="hidden" name="id" value="<?= $ligne['id']?>">
-                    <input class="text mt-4" type="text" name="NOM" value="<?= $ligne['NOM'];?>" pattern="[a-zA-Z]{1,}" required="">
+          <input class="text mt-4" type="text" name="NOM" value="<?= $ligne['NOM'];?>" pattern="[a-zA-Z]{1,}" required="">
 					<input class="text mt-4" type="text" name="PRENOM" value="<?= $ligne['PRENOM'];?>" pattern="[a-zA-Z]{1,}" required="">
 					<input class="text mt-4" type="date" name="NAISSANCE" value="<?= $ligne['NAISSANCE'];?>" required="">
 					<input class="text mt-4" type="text" name="ADRESSE" value="<?= $ligne['ADRESSE'];?>" required="">
@@ -95,8 +95,7 @@
 	<!-- //main -->
 	<script type="application/x-javascript"> addEventListener("load", function() 
 	{ setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-</body>
-</html>
+  
    <script src="../js/jquery-3.5.1.min.js"></script>
    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="js/app1.js" ></script>

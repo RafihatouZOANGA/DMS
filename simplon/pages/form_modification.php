@@ -111,25 +111,3 @@
 
 
 
-
-<?php/*
-
-    if(isset($_GET["id"]))
-    {
-        $id = $_GET["id"];
-        if(!empty($id) && is_numeric ($id))
-        {
-  
-            $bd = new PDO("mysql:host=localhost;dbname=apprenants","root", "");
-            $bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            $query = "SELECT * FROM liste WHERE id=$id";
-            $bd->exec($query);
-            $result = $bd->query($query);
-            $ligne = $result->fetchAll();
-            $id = $ligne[0] ["id"];
-            
-        }
-    }
-
-?>

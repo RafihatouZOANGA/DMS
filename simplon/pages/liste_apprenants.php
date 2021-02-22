@@ -42,7 +42,7 @@
         $bd = new PDO("mysql:host=localhost;dbname=apprenants","root", "");
         $bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $result = $bd->query("SELECT id, NOM, PRENOM, EMAIL FROM liste ORDER BY NOM ASC");
+        $result = $bd->query("SELECT id, NOM, PRENOM, EMAIL FROM liste ORDER BY id ASC");
 
         if (!$result){
             echo"la recuperation a echoue";
@@ -90,7 +90,7 @@
                                             <td>$ligne[1]</td>
                                             <td>$ligne[2]</td>
                                             <td>$ligne[3]</td>
-                                            <td><a class='btn btn-success' href='details.php?id=$ligne[0]'>Détails</a></td>
+                                            <td><a class='btn btn-success' href='detail_app.php?id=$ligne[0]'>Détails</a></td>
                                             <td><a class='btn btn-primary' href='mo.php?id=$ligne[0]'>Modifier</a></td>
                                             <td><a class='btn btn-danger' onclick='return confirm(\"Voulez-vous vraiment supprimer cet apprenant?\")'; href='supprimer.php?id=$ligne[0]'>Supprimer</a></td>
                                         </tr>";
