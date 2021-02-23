@@ -72,27 +72,26 @@
             <div class="col-2"></div>
             <div class="col-8">
                 <div class="liste_tableau">
-                    <table width=100%>
+                    <table width=80%>
                         <tr>
-                            <th>ID</th>
+                            
                             <th>NOM</th>
                             <th>PRENOM</th>
                             <th>EMAIL</th>
-                            <th>ACTION 1</th>
-                            <th>ACTION 2</th>
-                            <th>ACTION 3</th>
+                            <th class="text-center">ACTION</th>
                         </tr>
                         <tr>
                             <?php
                                 while($ligne = $result->fetch()){
                                     echo "<tr>
-                                            <td>$ligne[0]</td>
+                                            
                                             <td>$ligne[1]</td>
                                             <td>$ligne[2]</td>
                                             <td>$ligne[3]</td>
-                                            <td><a class='btn btn-success' href='detail_app.php?id=$ligne[0]'>Détails</a></td>
-                                            <td><a class='btn btn-primary' href='mo.php?id=$ligne[0]'>Modifier</a></td>
-                                            <td><a class='btn btn-danger' onclick='return confirm(\"Voulez-vous vraiment supprimer cet apprenant?\")'; href='supprimer.php?id=$ligne[0]'>Supprimer</a></td>
+                                            <td><a class='btn btn-success' href='detail_app.php?id=$ligne[0]'>Détails</a>
+                                            <a class='btn btn-primary ml-3' href='mo.php?id=$ligne[0]'>Modifier</a>
+                                            <a class='btn btn-danger ml-3' onclick='return confirm(\"Voulez-vous vraiment supprimer cet apprenant?\")'; href='supprimer.php?id=$ligne[0]'>Supprimer</a>
+                                            </td>
                                         </tr>";
                                 }
                             ?>
@@ -104,7 +103,7 @@
         </div>
     </div>
     <footer>
-    <?php include ('pied.php') ; ?>
+    <?php// include ('pied.php') ; ?>
     </footer>
 
     <script src="../js/jquery-3.5.1.min.js"></script>

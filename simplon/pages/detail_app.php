@@ -57,7 +57,7 @@
 		<h1 class="font-weight-bold">Voici les détails de l'apprenant <?= $ligne['NOM'] ." ". $ligne['PRENOM']; ?></h1>
 		<div class="text-center">
         <ul>
-            <li class="font-weight-bold text-white">ID : <?= $ligne['id'] ?></li>
+            <br>
             <li class="font-weight-bold text-white">NOM: <?= $ligne['NOM'] ?></li>
             <li class="font-weight-bold text-white">PRENOM : <?= $ligne['PRENOM'] ?></li>
             <li class="font-weight-bold text-white">NAISSANCE : <?= $ligne['NAISSANCE'] ?></li>

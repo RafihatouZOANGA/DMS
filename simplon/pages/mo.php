@@ -78,7 +78,7 @@
 					<input class="text email" type="email" name="EMAIL" value="<?= $ligne['EMAIL'];?>" required="">
           <button type="submit" class="btn btn-primary"><span>UPDATE</span></button>
 				</form>
-				<p><a href="../index.php" class="list-unstyled"> RETOUR</a></p>
+				<p><a href="liste_apprenants.php" class="list-unstyled btn btn-light font-weight-bold text-dark"> RETOUR</a></p>
 			</div>
 		</div>
     ?>
